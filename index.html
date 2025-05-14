@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nima Omme Special</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; }
+    .card { display: inline-block; margin: 5px; padding: 10px; border: 1px solid #000; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Nima Omme Special</h1>
+  <div id="gameArea">Laddar kort...</div>
+  <script>
+    fetch('/cards')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('gameArea');
+        container.innerHTML = '';
+        data.forEach(card => {
+          const div = document.createElement('div');
+          div.className = 'card';
+          div.textContent = card;
+          container.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>
