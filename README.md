@@ -1,0 +1,2 @@
+# om
+omme spelet
